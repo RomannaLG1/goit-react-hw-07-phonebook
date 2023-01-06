@@ -22,6 +22,8 @@ transition: background-color 250ms linear;
 }
 `;
 export const ItemText = styled.span`
+width: 205px;
+text-align: left;
 color: ${p => p.theme.colors.primary};
 font-size: ${p => p.theme.fontSizes[2]}px;
 font-weight: ${p => p.theme.fontWeights.bold};
@@ -35,6 +37,7 @@ color: ${p => p.theme.colors.primary};
 border: ${p => p.theme.borders.none};
 transition: color 250ms linear;
 &:hover, :focus {
+    outline: none;
     cursor: pointer;
     color: ${p => p.theme.colors.warning};
 }
