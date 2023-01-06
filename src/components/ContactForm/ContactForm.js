@@ -39,7 +39,7 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  // +380989809898
+  // +380989809898///
   const addNewContact = ({name, number}) => {
     console.log('form', name, number);
     contacts.find(
