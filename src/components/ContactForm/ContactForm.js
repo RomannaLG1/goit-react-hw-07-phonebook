@@ -40,16 +40,17 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
 
   // +380989809898
-    const addNewContact = ({name, number}) => {
+  const addNewContact = ({name, number}) => {
+    console.log('form', name, number);
     contacts.find(
       contact => contact.name === name
     )
       ? alert(`${name} is already in contacts`)
-      : dispatch(addContact(name, number));
+      : dispatch(addContact({name, number}));
   };
 
   const handleSubmit = (value, { resetForm }) => {
-    dispatch(addNewContact(value));
+    addNewContact(value);
     resetForm();
   };
 
