@@ -7,18 +7,17 @@ import {
 } from './ContactListItem.styled';
 import { TiDelete } from 'react-icons/ti';
 import { useDispatch } from 'react-redux';
-import { deleteContacts } from 'redux/contactsSlice';
+import { deleteContact } from '../../redux/operations';
 
 export const ContactListItem = ({id, name, number }) => {
   const dispatch = useDispatch();
-  console.log(id);
-  console.log(name);
+  const handleDelete = () => dispatch(deleteContact(id));
   return (
   <ListItemStyled>
     <ItemLink>
       <ItemText>{name}</ItemText>
       <ItemText>{number}</ItemText>
-      <DeleteButton type="button" onClick={() => dispatch(deleteContacts(id))}>
+      <DeleteButton type="button" onClick={handleDelete}>
         <TiDelete size="20" />
       </DeleteButton>
     </ItemLink>

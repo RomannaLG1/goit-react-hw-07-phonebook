@@ -12,8 +12,8 @@ import { BsTelephoneForwardFill, BsPersonSquare } from 'react-icons/bs';
 import * as yup from 'yup';
 import 'yup-phone';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContacts } from 'redux/contactsSlice';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from '../../redux/operations';
 
 const valName = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 
@@ -37,19 +37,19 @@ export const ContactForm = () => {
   });
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
-
+  // +380989809898
     const addNewContact = ({name, number}) => {
     contacts.find(
       contact => contact.name === name
     )
       ? alert(`${name} is already in contacts`)
-      : dispatch(addContacts(name, number));
+      : dispatch(addContact(name, number));
   };
 
   const handleSubmit = (value, { resetForm }) => {
-    addNewContact(value);
+    dispatch(addNewContact(value));
     resetForm();
   };
 
@@ -79,5 +79,3 @@ export const ContactForm = () => {
     </Formik>
   );
 };
-
-
