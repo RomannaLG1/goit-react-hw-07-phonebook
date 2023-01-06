@@ -9,7 +9,7 @@ import { setFilter } from 'redux/filrersSlice';
 export const Filter = () => {
   const filterId = nanoid();
   const dispatch = useDispatch();
-  const filter = useSelector(selectFilters).name;
+  const filter = useSelector(selectFilters);
 
   return (
     <Formik>
